@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #heading{
+        text-align:center;
+        color:rgba(251, 201, 0, 0.984);
+        }
+        body {
+
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #table {
+            border-collapse: collapse;
+            width: 50%; /* Adjust the width as needed */
+            margin: auto;
+            border:2px solid rgba(251, 201, 0, 0.984);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        tr{
+            border:2px solid rgba(251, 201, 0, 0.984);
+        }
+
+        #btn{
+        margin-left:610px;
+        background-color:rgba(251, 201, 0, 0.984);
+        color:black;
+        width:200px;
+        height:30px;
+        border-radius:20px;
+        }
+    </style>
+</head>
+<body>
+<h1 id="heading">Clients Details</h1>
+<table id="table" border="1">
+    <tr>
+        <th> ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Contact</th>
+    </tr>
+    {% for i in res %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.firstname}}</td>
+        <td>{{i.lastname}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.age}}</td>
+        <td>{{i.Gender}}</td>
+        <td>{{i.contact}}</td>
+        <td> <a href="/edit/{{i.id}}">edit</a>
+        <a href="/delete/{{i.id}}"> delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table><br>
+ <form action="saveform">
+    <button id="btn" type="submit">home</button>
+</form>
+</body>
+</html>
